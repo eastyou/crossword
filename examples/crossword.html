@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>填字游戏</title>
+<style>
+@page { size: A4; margin: 0 }
+* { box-sizing: border-box }
+body {
+  margin: 0;
+  background: #eef1f5;
+  color: #1f2328;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+}
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 12mm;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #ffffff;
+  margin: 0 auto 8mm;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+}
+.page:last-child { page-break-after: auto; margin-bottom: 0 }
+.doc-header { text-align: center; margin-bottom: 5mm }
+.doc-header h1 { font-size: 22pt; letter-spacing: 2px; margin: 0 0 2mm }
+.doc-header .tip { font-size: 9.5pt; color: #5b6470; margin: 0; line-height: 1.6 }
+.grid-wrap { display: flex; justify-content: center; margin: 3mm 0 5mm }
+table.grid { border-collapse: collapse; table-layout: fixed }
+table.grid td { padding: 0 }
+table.grid td.cell {
+  position: relative;
+  border: 0.45mm solid #1f2328;
+  text-align: left;
+  vertical-align: top;
+}
+table.grid td.blank { border: none }
+table.grid .num {
+  position: absolute;
+  top: 0.2mm;
+  left: 0.6mm;
+  font-size: 2.2mm;
+  line-height: 1;
+  color: #6b7280;
+  font-family: Arial, Helvetica, sans-serif;
+}
+table.grid .letter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  line-height: 1;
+}
+.clues { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm }
+.clues section h2 {
+  font-size: 11pt;
+  margin: 0 0 2mm;
+  padding-bottom: 1mm;
+  border-bottom: 0.3mm solid #d0d5dd;
+}
+.clues ul { margin: 0; padding: 0; list-style: none }
+.clues li { font-size: 9.5pt; line-height: 1.5; margin-bottom: 1.4mm; break-inside: avoid }
+.clues .idx { font-weight: 700; margin-right: 1.5mm }
+.words { margin-top: 2mm }
+.words h2 { font-size: 11pt; margin: 0 0 2mm; border-bottom: 0.3mm solid #d0d5dd; padding-bottom: 1mm }
+.words table { width: 100%; border-collapse: collapse; font-size: 9.5pt }
+.words th, .words td { border: 0.25mm solid #c8ced8; padding: 1.2mm 1.6mm; text-align: left }
+.words th { background: #f2f4f7 }
+.words td.answer { font-weight: 600; letter-spacing: 1px }
+.doc-footer { margin-top: auto; padding-top: 4mm; text-align: center; color: #98a2b3; font-size: 8pt }
+@media print {
+  body { background: #ffffff }
+  .page { margin: 0 }
+}
+</style>
+</head>
+<body>
+<div class="page"><div class="doc-header"><h1>填字游戏</h1><p class="tip">根据线索，在空白格中填入对应词语，每个字符占一格；横向与纵向交叉处的字符需一致。</p></div><div class="grid-wrap"><table class="grid" style="width:112.00mm;font-size:8.00mm"><tr><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">1</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">2</span><span class="letter"></span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">3</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">4</span><span class="letter"></span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">5</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">6</span><span class="letter"></span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">7</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">8</span><span class="letter"></span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">9</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">10</span><span class="letter"></span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">11</span><span class="letter"></span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">12</span><span class="letter"></span></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="letter"></span></td></tr></table></div><div class="clues"><section><h2>横向</h2><ul><li><span class="idx">1.</span>四季之首（2 字）</li><li><span class="idx">3.</span>看不见却离不开（2 字）</li><li><span class="idx">5.</span>打球时握在手里的工具（2 字）</li><li><span class="idx">7.</span>手掌上的五个小伙伴（2 字）</li><li><span class="idx">9.</span>天气通常较热的方位（2 字）</li><li><span class="idx">11.</span>朝着高处（2 字）</li></ul></section><section><h2>纵向</h2><ul><li><span class="idx">2.</span>头顶上的蓝色世界（2 字）</li><li><span class="idx">4.</span>吹大后会升空的玩具（2 字）</li><li><span class="idx">6.</span>表示欢迎或赞赏的动作（2 字）</li><li><span class="idx">8.</span>辨别方向的工具（2 字）</li><li><span class="idx">10.</span>东南西北所指（2 字）</li><li><span class="idx">12.</span>每天背起书包去做的事（2 字）</li></ul></section></div><div class="doc-footer">crossword · A4 打印版</div></div>
+<div class="page"><div class="doc-header"><h1>填字游戏 · 参考答案</h1><p class="tip">答案页：核对填字结果与完整词表。</p></div><div class="grid-wrap"><table class="grid" style="width:112.00mm;font-size:8.00mm"><tr><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">1</span><span class="letter">春</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">2</span><span class="letter">天</span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">3</span><span class="letter">空</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">4</span><span class="letter">气</span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">5</span><span class="letter">球</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">6</span><span class="letter">拍</span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">7</span><span class="letter">手</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">8</span><span class="letter">指</span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">9</span><span class="letter">南</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">10</span><span class="letter">方</span></td><td class="blank" style="width:16.00mm;height:16.00mm"></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">11</span><span class="letter">向</span></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="num">12</span><span class="letter">上</span></td></tr><tr><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="blank" style="width:16.00mm;height:16.00mm"></td><td class="cell" style="width:16.00mm;height:16.00mm"><span class="letter">学</span></td></tr></table></div><div class="clues"><section><h2>横向</h2><ul><li><span class="idx">1.</span>四季之首（2 字）</li><li><span class="idx">3.</span>看不见却离不开（2 字）</li><li><span class="idx">5.</span>打球时握在手里的工具（2 字）</li><li><span class="idx">7.</span>手掌上的五个小伙伴（2 字）</li><li><span class="idx">9.</span>天气通常较热的方位（2 字）</li><li><span class="idx">11.</span>朝着高处（2 字）</li></ul></section><section><h2>纵向</h2><ul><li><span class="idx">2.</span>头顶上的蓝色世界（2 字）</li><li><span class="idx">4.</span>吹大后会升空的玩具（2 字）</li><li><span class="idx">6.</span>表示欢迎或赞赏的动作（2 字）</li><li><span class="idx">8.</span>辨别方向的工具（2 字）</li><li><span class="idx">10.</span>东南西北所指（2 字）</li><li><span class="idx">12.</span>每天背起书包去做的事（2 字）</li></ul></section></div><div class="words"><h2>完整词表</h2><table><thead><tr><th>编号</th><th>方向</th><th>答案</th><th>线索</th></tr></thead><tbody><tr><td>1</td><td>横向</td><td class="answer">春天</td><td>四季之首</td></tr><tr><td>2</td><td>纵向</td><td class="answer">天空</td><td>头顶上的蓝色世界</td></tr><tr><td>3</td><td>横向</td><td class="answer">空气</td><td>看不见却离不开</td></tr><tr><td>4</td><td>纵向</td><td class="answer">气球</td><td>吹大后会升空的玩具</td></tr><tr><td>5</td><td>横向</td><td class="answer">球拍</td><td>打球时握在手里的工具</td></tr><tr><td>6</td><td>纵向</td><td class="answer">拍手</td><td>表示欢迎或赞赏的动作</td></tr><tr><td>7</td><td>横向</td><td class="answer">手指</td><td>手掌上的五个小伙伴</td></tr><tr><td>8</td><td>纵向</td><td class="answer">指南</td><td>辨别方向的工具</td></tr><tr><td>9</td><td>横向</td><td class="answer">南方</td><td>天气通常较热的方位</td></tr><tr><td>10</td><td>纵向</td><td class="answer">方向</td><td>东南西北所指</td></tr><tr><td>11</td><td>横向</td><td class="answer">向上</td><td>朝着高处</td></tr><tr><td>12</td><td>纵向</td><td class="answer">上学</td><td>每天背起书包去做的事</td></tr></tbody></table></div><div class="doc-footer">crossword · A4 打印版</div></div>
+</body>
+</html>
